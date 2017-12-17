@@ -1,5 +1,5 @@
-const SERVICE_UUID = "000b0001-0010-0080-0000-8-5f9b34fb00";
-const CHARACTERISTIC_UUID = "000b0002-0010-0080-0000-8-5f9b34fb00";
+const SERVICE_UUID = "000b0001-0010-0080-0000-805f9b34fb00";
+const CHARACTERISTIC_UUID = "000b0002-0010-0080-0000-805f9b34fb00";
 
 function connectBLE(){
 	console.log("Start setting connection with ble...");
