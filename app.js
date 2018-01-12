@@ -1,10 +1,9 @@
-const SERVICE_UUID = "";
-const CHARACTERISTIC_UUID = "";
+const SERVICE_UUID = parseInt("0x180D");
+const CHARACTERISTIC_UUID = parseInt("0x2A37");
 
 function connectBLE(){
 	console.log("Start setting connection with ble...");
-	navigator.bluetooth.requestDevice({
-		acceptAllDevices:true, optionalServices:[SERVICE_UUID]})
+	navigator.bluetooth.requestDevice({filters: [{services: [SERVICE_UUID]}]})
 	.then(device => {
 		return device.gatt.connect();
 	})
@@ -17,7 +16,7 @@ function connectBLE(){
 	.then(characteristic => {
 		return characteristic.startNotifications()
 		.then(char => {
-			characteristic.addEventListner('characteristicvaluechanged', onValueChanged);
+			characteristic.addEventListener('characteristicvaluechanged', onValueChanged);
 		});
 	
 	})
@@ -28,6 +27,6 @@ function connectBLE(){
 
 function onValueChanged(event) {
 	console.log('onValueChanged');
-	let value = String.fromCharCode(event.target.value.getInt8(0));
+	let value = event.target.value.getInt8(1);
 	console.log(value);
 }
