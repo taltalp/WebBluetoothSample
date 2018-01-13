@@ -1,2 +1,4 @@
-# WebBluetoothSample
-This code is the simple example to connect to BLE Heart rate device.
+# WebBluetoothSamples
+
+## Read Characteristic Value Changed
+This sample is the simple code to get characteristic from Heart Rate device. 
